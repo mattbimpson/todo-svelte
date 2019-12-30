@@ -12,10 +12,14 @@
 	}
 	
 	function addTodo() {
-		const id = todos.length;
+		const id = todos.length ? todos[todos.length -1].id + 1 : 0;
 		const newTodo = { id, text: description, completed: false };
 		todos = [...todos, newTodo];
 		description = '';
+	}
+
+	function remove(id) {
+		todos = todos.filter(x => x.id !== id);
 	}
 </script>
 
@@ -30,7 +34,7 @@
 		</div>
 		<div class="todo-list">
 			{#each todos as todo}
-				<Todo todo={todo} />
+				<Todo todo={todo} remove={remove} />
 				<br/>
 			{/each}
 		</div>

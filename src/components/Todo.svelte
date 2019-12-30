@@ -1,12 +1,9 @@
 <script>
     export let todo;
+    export let remove;
 
     function completedChanged() {
         todo.completed = !todo.completed;
-    }
-
-    function remove() {
-
     }
 </script>
 
@@ -15,7 +12,7 @@
         {todo.text}
     </div>
     <div class='todo-controls'>
-        <input type="button" class="btn" value="X" on:click={remove} />
+        <input type="button" class="btn" value="X" on:click={remove(todo.id)} />
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 <script>
 	import Todo from './components/Todo.svelte';
+	import ConfirmBtn from './components/ConfirmBtn.svelte';
 
 	let description;
 	let addButtonText = 'Add todo';
@@ -21,6 +22,10 @@
 	function remove(id) {
 		todos = todos.filter(x => x.id !== id);
 	}
+
+	function clearAll() {
+		todos = [];
+	}
 </script>
 
 <main>
@@ -38,7 +43,7 @@
 				<br/>
 			{/each}
 		</div>
-		<!-- <ConfirmBtn buttonText="Clear all your todos?" action={this.clearAll} /> -->
+		<ConfirmBtn buttonText="Clear all your todos?" action={clearAll} />
 	</div>
 </main>
 
